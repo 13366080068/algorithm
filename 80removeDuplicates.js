@@ -4,8 +4,8 @@ const removeDuplicates = nums => {
       return len
   }
 
-  let prev = 1, cur = 2
-  while (cur < len) {
+  let prev = 1, curr = 2
+  while (curr < len) {
     if (nums[curr] === nums[prev] && nums[curr] === nums[prev - 1]) {
       curr++
     } else {
