@@ -27,4 +27,5 @@ var insertionSortList = function(head) {
         index++
     }
     return head
+    
 }
