@@ -5,20 +5,12 @@ const MinStack = function () {
 
 MinStack.prototype.push = function(x) {
   this.st.push(x)
-  if (this.stMin.length > 0) {
-    if (x <= this.stMin[this.stMin.length - 1]) {
-      this.stMin.push(x)
-    }
-  } else {
-    this.stMin.push(x)
-  }
+  if (!this.stMin.length || x <= this.stMin[this.stMin.length - 1]) this.stMin.push(x)  
 }
 
 MinStack.prototype.pop = function() {
   const popItem = this.st.pop()
-  if (popItem === this.stMin[this.stMin.length - 1]) {
-    this.stMin.pop()
-  }
+  if (item === this.stMin[this.stMin.length - 1]) this.stMin.pop() 
 }
 
 MinStack.prototype.top = function() {

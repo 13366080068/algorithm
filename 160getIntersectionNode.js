@@ -17,11 +17,9 @@ var getIntersectionNode = function(headA, headB) {
         lenA--
     }
     while (headA && headB) {
-        if (headA === headB) {
-            return headA
-        }
+        if (headA === headB) return headA
         headA = headA.next
         headB = headB.next
     }
     return null
-}   
+}

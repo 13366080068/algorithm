@@ -1,14 +1,9 @@
 var hasCycle = function(head) {
-    if (head === null || head.next === null) {
-        return false
-    }
-    let fast = head, slow = head
-    while(fast !== null && fast.next !== null) {
-        fast = fast.next.next
+    let slow = head, fast = head
+    while (fast && fast.next && fast.next.next) {
         slow = slow.next
-        if (fast === slow) {
-            return true
-        }
+        fast = fast.next.next
+        if (slow.val === fast.val) return true
     }
     return false
 }

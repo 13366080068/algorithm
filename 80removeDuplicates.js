@@ -1,21 +1,7 @@
-const removeDuplicates = nums => {
-  const len = nums.length
-  if (len < 3) {
-      return len
+var removeDuplicates = function(nums) {
+  let i = 1
+  for (let j = 2; j < nums.length; j++) {
+      if (!(nums[j] === nums[i] && nums[j] === nums[i - 1])) nums[++i] = nums[j]
   }
-
-  let prev = 1, curr = 2
-  while (curr < len) {
-    if (nums[curr] === nums[prev] && nums[curr] === nums[prev - 1]) {
-      curr++
-    } else {
-      prev++
-      nums[prev] = nums[curr]
-      curr++
-    }
-  }
-  
-  return prev + 1
+  return ++i
 }
-
-console.log(removeDuplicates([0,0,0,0,0]))
