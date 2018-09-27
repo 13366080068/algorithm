@@ -1,18 +1,11 @@
 var postorderTraversal = function(root) {
-  if (!root) return []
-  const arr = [], stack = [root], stack1 = []
-  while (stack.length) {
-      root = stack.pop()
-      stack1.push(root.val)
-      if (root.left) {
-          stack.push(root.left)
-      }
-      if (root.right) {
-          stack.push(root.right)
-      }
-  }
-  while (stack1.length) {
-      arr.push(stack1.pop())
-  }
-  return arr
+    if (!root) return []
+    const res = [], stack = [root]
+    while (stack.length) {
+        const item = stack.pop()
+        res.unshift(item.val)
+        if (item.left) stack.push(item.left)
+        if (item.right) stack.push(item.right)
+    }
+    return res
 }
