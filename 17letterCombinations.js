@@ -1,17 +1,12 @@
 var letterCombinations = function(digits) {
-    if (!digits.length) return []
+    if (!Boolean(digits)) return []
     const letters = [' ', '', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz']
-    let ans = []
-    dfs('', 0, digits)
-    return ans
-    function dfs(str, index, digits) {
-        if (index === digits.length) {
-            return ans.push(str)
-        }
-        const num = Number(digits[index])
-        const letterN = letters[num]
-        for (let i = 0; i < letterN.length; i++) {
-            dfs(str + letterN[i], index + 1, digits)
-        }
+    const res = []
+    function dfs(str, key) {
+        if (key === digits.length) return res.push(str)
+        const letter = letters[Number(digits[key])]
+        for (let i = 0; i < letter.length; i++) dfs(str + letter[i], key + 1)
     }
+    dfs('', 0)
+    return res
 }
